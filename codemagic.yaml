@@ -12,9 +12,10 @@ workflows:
           - name: Set up keystore
             script: |
               echo $CM_KEYSTORE | base64 --decode > $CM_KEYSTORE_PATH
-          - name: Install npm dependencies
+          - name: Install npm dependencies, downgrade
             script: | 
               npm install
+              expo downgrade 46
           - name: Install Expo CLI and eject
             script: | 
               npx expo prebuild
