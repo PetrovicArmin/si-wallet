@@ -15,7 +15,7 @@ workflows:
           - name: Install npm dependencies, downgrade
             script: | 
               npm install
-              expo downgrade 46
+              npx expo downgrade 46
           - name: Install Expo CLI and eject
             script: | 
               npx expo prebuild
