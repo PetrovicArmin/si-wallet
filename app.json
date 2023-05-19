@@ -2,7 +2,7 @@
   "expo": {
     "scheme": "host.exp.exponent",
     "name": "SI-Wallet",
-    "slug": "SI-Wallet",
+    "slug": "si-wallet",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/registration.png",
@@ -28,6 +28,12 @@
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "dd6cd022-715c-4b44-b3d1-bea6f1747ddb"
+      }
+    },
+    "owner": "expo-armin"
   }
 }
