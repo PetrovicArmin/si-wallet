@@ -87,7 +87,7 @@ const HomeScreen = ({ navigation }) => {
                         source={require("../assets/images/newbank.png")}
                         style={styles.buttonImage}
                     />
-                    <Text style={styles.text}>Create New Account</Text>
+                    <Text style={styles.text}>Create Your Account</Text>
                 </Pressable>
               
                 <Pressable
