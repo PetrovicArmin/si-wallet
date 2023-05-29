@@ -1,0 +1,48 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run unit tests
+        run: npm test
+
+      - name: Build app
+        run: npm run build
+
+      #- name: Deploy to test server
+        # Replace with your deployment command or script
+        #run: npm run deploy:test
+
+      - name: Check deployment status
+        id: deployment-status
+        run: echo "::set-output name=status::success"
+
+      #- name: Deploy to production server
+       # if: steps.deployment-status.outputs.status == 'success'
+        # Replace with your deployment command or script
+        #run: npm run deploy:production
+
+      - name: Generate email with build stats
+        if: always()
+        run: |
+          echo "Build stats" > build_stats.txt
+          cat package.json >> build_stats.txt
+          cat build_stats.txt | mail -s "Build Stats" bazman1@etf.unsa.ba
